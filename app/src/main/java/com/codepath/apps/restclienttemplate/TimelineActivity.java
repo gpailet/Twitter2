@@ -64,6 +64,8 @@ public class TimelineActivity extends AppCompatActivity {
         miActionProgressItem.setVisible(false);
     }
 
+
+
     public void onComposeAction(MenuItem mi){
         Intent intent=new Intent(TimelineActivity.this,ComposeActivity.class);
         startActivityForResult(intent,REQUEST_CODE);

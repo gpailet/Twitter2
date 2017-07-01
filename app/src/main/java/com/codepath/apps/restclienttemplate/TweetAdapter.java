@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -59,7 +60,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     //bind the values based on the position of the element
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         //get the data according to the position
         Tweet tweet = mTweets.get(position);
         //populate the views according to this data
@@ -69,6 +70,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         holder.tvCreatedAt.setText(getRelativeTimeAgo(tweet.createdAt));
 
         Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+
+
+        //Sets statuses of like
+        if (tweet.favorite_status){
+            holder.ivLike.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_heart));
+        }
     }
 
     @Override
@@ -104,7 +111,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             tvScreenName=(TextView)itemView.findViewById(R.id.tvScreenName);
             tvCreatedAt=(TextView)itemView.findViewById(R.id.tvCreatedAt);
 
-            itemView.setOnClickListener(this);
 
         }
         @Override
@@ -121,6 +127,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             }
         }
     }
+
     // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
     public String getRelativeTimeAgo(String rawJsonDate) {
         String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
