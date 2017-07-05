@@ -9,12 +9,18 @@
         app:showAsAction="ifRoom"
         android:onClick="onComposeAction"
         android:title="Compose" />
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="Item"
+        android:onClick="onProfileView"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/miActionProgress"
+        android:orderInCategory="100"
         android:title="Loading..."
         android:visible="true"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        app:actionLayout="@layout/action_view_progress" />
+        app:actionLayout="@layout/action_view_progress"
+        app:showAsAction="always" />
 </menu>
