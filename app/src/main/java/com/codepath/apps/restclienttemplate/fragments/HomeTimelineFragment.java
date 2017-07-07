@@ -39,26 +39,8 @@ public class HomeTimelineFragment extends TweetsListFragment {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                //Log.d("TwitterClient",response.toString());
                 addItems(response);
-                //iterate through the JSON array
-                //for each entry, deserialize the JSON object
-                //for (int i=0;i<response.length();i++) {
-                //convert each object to a Tweet model
-                //add that Tweet model to our data source
-                // notify the adapter that we've added an item
-                    /*
-                    try {
-                        Tweet tweet = Tweet.fromJSON(response.getJSONObject(i));
-                        tweets.add(tweet);
-                        tweetAdapter.notifyItemInserted(tweets.size() - 1);
-                    }
-                    catch(JSONException e){
-                        e.printStackTrace();
-                    }
-                    */
             }
-            //}
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {

@@ -29,10 +29,6 @@ public class ComposeActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     public void sendTweet(View view){
 
 

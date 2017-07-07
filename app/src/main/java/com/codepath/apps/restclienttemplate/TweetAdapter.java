@@ -134,7 +134,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
                 }
             });
 
-
         }
         @Override
         public void onClick(View v){

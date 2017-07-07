@@ -39,7 +39,5 @@ public class TweetDetailsActivity extends AppCompatActivity{
         tvHandle.setText("@"+tweet.user.screenName);
         tvDetailBody.setText(tweet.body);
         Glide.with(this).load(tweet.user.profileImageUrl).into(ivDetailProfileImage);
-        //Glide.with(this).load(tweet.imageURL).into(ivDetailTweetPicture);
-
     }
 }

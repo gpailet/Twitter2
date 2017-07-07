@@ -72,7 +72,6 @@ public class TweetsListFragment extends Fragment implements TweetAdapter.TweetAd
     @Override
     public void onItemSelected(View view, int position) {
         Tweet tweet=tweets.get(position);
-        //Toast.makeText(getContext(),tweet.body,Toast.LENGTH_SHORT).show();
         ((TweetSelectedListener)getActivity()).onTweetSelected(tweet);
     }
 }
