@@ -1,8 +1,8 @@
 # Project 4 - *SimpleTweet*
 
-**Name of your app** is an android app that allows a user to view home and mentions timelines, view user profiles with user timelines, as well as compose and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
+**SimpleTweet** is an android app that allows a user to view home and mentions timelines, view user profiles with user timelines, as well as compose and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
 
-Time spent: **X** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
@@ -25,10 +25,10 @@ The following **optional** features are implemented:
 * [x] User can **pull down to refresh tweets** in either timeline.
 * [x] Improve the user interface and theme the app to feel twitter branded with colors and styles
 * [ ] User can **search for tweets matching a particular query** and see results.
-* [ ] When a network request is sent, user sees an [indeterminate progress indicator](http://guides.codepath.com/android/Handling-ProgressBars#progress-within-actionbar)
+* [x] When a network request is sent, user sees an [indeterminate progress indicator](http://guides.codepath.com/android/Handling-ProgressBars#progress-within-actionbar)
 * [x] User can **"reply" to any tweet on their home timeline**
   * [x] The user that wrote the original tweet is automatically "@" replied in compose
-* [ ] User can click on a tweet to be **taken to a "detail view"** of that tweet
+* [x] User can click on a tweet to be **taken to a "detail view"** of that tweet
  * [x] User can take favorite (and unfavorite) or retweet actions on a tweet
 * [ ] User can see embedded image media within the tweet item in list or detail view.
 * [ ] Compose activity is replaced with a modal compose overlay.
@@ -48,7 +48,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/gpailet/Twitter2/blob/master/video.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/gpailet/Twitter2/blob/master/twitterDemo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
