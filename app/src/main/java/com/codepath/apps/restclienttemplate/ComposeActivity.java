@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -21,19 +22,26 @@ public class ComposeActivity extends AppCompatActivity {
 
     private TwitterClient client;
     private String message;
+    private long userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
         client=TwitterApp.getRestClient();
+        userId=getIntent().getLongExtra("id",-1);
+        TextView tvReply=(TextView)findViewById(R.id.tvReply);
+        if (userId!=-1){
+            tvReply.setText("In reply to @"+getIntent().getStringExtra("screen_name"));
+        }
     }
 
 
     public void sendTweet(View view){
 
-
-        message=((EditText)findViewById(R.id.etMakeTweet)).getText().toString();
-        client.sendTweet(message,new JsonHttpResponseHandler() {
+        String prefix="";
+        if (userId!=-1) prefix="@"+getIntent().getStringExtra("screen_name")+" ";
+        message=prefix+((EditText)findViewById(R.id.etMakeTweet)).getText().toString();
+        client.sendTweet(message,userId,new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("TwitterClient", response.toString());

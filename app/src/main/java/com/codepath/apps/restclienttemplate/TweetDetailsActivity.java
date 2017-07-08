@@ -27,13 +27,13 @@ public class TweetDetailsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tweet_detail);
 
-        tweet= Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
+        tweet= Parcels.unwrap(getIntent().getParcelableExtra("detail"));
 
         tvTitleName=(TextView)findViewById(R.id.tvTitleName);
         tvHandle=(TextView)findViewById(R.id.tvHandle);
         tvDetailBody=(TextView)findViewById(R.id.tvDetailBody);
         ivDetailProfileImage=(ImageView)findViewById(R.id.ivDetailProfileImage);
-        ivDetailTweetPicture=(ImageView)findViewById(R.id.ivTweetPicture);
+        //ivDetailTweetPicture=(ImageView)findViewById(R.id.ivTweetPicture);
 
         tvTitleName.setText(tweet.user.name);
         tvHandle.setText("@"+tweet.user.screenName);

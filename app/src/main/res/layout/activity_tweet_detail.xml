@@ -43,11 +43,11 @@
         android:text="Body"
         android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/ivTweetPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDetailBody"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@android:color/black" />
+    <!--<ImageView-->
+        <!--android:id="@+id/ivTweetPicture"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/tvDetailBody"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--app:srcCompat="@android:color/black" />-->
 </RelativeLayout>

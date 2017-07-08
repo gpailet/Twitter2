@@ -37,22 +37,41 @@ public class ProfileActivity extends AppCompatActivity {
         ft.commit();
 
         client=TwitterApp.getRestClient();
-        client.getUserInfo(new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                // deserialize the User object
-                try {
-                    User user = User.fromJSON(response);
-                    //set the title of the ActionBar based on the user information
-                    getSupportActionBar().setTitle(user.screenName);
-                    //populate the user headline
-                    populateUserHeadline(user);
+        if (screenName==null) {
+            client.getUserInfo(new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    // deserialize the User object
+                    try {
+                        User user = User.fromJSON(response);
+                        //set the title of the ActionBar based on the user information
+                        getSupportActionBar().setTitle(user.screenName);
+                        //populate the user headline
+                        populateUserHeadline(user);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
-                catch (JSONException e){
-                    e.printStackTrace();
+            });
+        }
+        else
+        {
+            client.getOtherUserInfo(screenName,new JsonHttpResponseHandler(){
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    // deserialize the User object
+                    try {
+                        User user = User.fromJSON(response);
+                        //set the title of the ActionBar based on the user information
+                        getSupportActionBar().setTitle(user.screenName);
+                        //populate the user headline
+                        populateUserHeadline(user);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
     public void populateUserHeadline(User user){
         TextView tvName=(TextView)findViewById(R.id.tvName);

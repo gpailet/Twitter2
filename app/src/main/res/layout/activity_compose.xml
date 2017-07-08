@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     tools:context="com.codepath.apps.restclienttemplate.ComposeActivity">
 
     <EditText
@@ -12,18 +13,28 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="16dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/tvReply"
         android:layout_alignParentStart="true"></EditText>
 
     <Button
         android:id="@+id/btSendTweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send Tweet"
+        android:background="@color/twitter_blue"
         android:onClick="sendTweet"
+        android:text="Send Tweet"
+        android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="80dp"
         android:layout_below="@+id/etMakeTweet"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/tvReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="" />
 
 </RelativeLayout>

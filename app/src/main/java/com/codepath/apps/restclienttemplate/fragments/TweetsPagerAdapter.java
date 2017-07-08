@@ -1,7 +1,6 @@
 package com.codepath.apps.restclienttemplate.fragments;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
@@ -13,9 +12,14 @@ public class TweetsPagerAdapter extends FragmentPagerAdapter {
     private String tabTitles[]=new String[]{"Home","Mentions"};
     private Context context;
 
+    HomeTimelineFragment homeTimelineFragment;
+    MentionsTimelineFragment mentionsTimelineFragment;
+
     public TweetsPagerAdapter(FragmentManager fm, Context context){
         super(fm);
         this.context=context;
+        homeTimelineFragment = (HomeTimelineFragment) new HomeTimelineFragment();
+        mentionsTimelineFragment = (MentionsTimelineFragment) new MentionsTimelineFragment();
     }
     //return the total # of fragments
 
@@ -28,12 +32,12 @@ public class TweetsPagerAdapter extends FragmentPagerAdapter {
     // return the fragment to use depending on the position
 
     @Override
-    public Fragment getItem(int position) {
+    public TweetsListFragment getItem(int position) {
         if (position==0){
-            return new HomeTimelineFragment();
+            return homeTimelineFragment;
         }
         else if(position==1){
-            return new MentionsTimelineFragment();
+            return mentionsTimelineFragment;
         }
         else{
             return null;

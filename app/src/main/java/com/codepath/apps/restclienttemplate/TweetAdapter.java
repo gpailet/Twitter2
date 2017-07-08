@@ -34,6 +34,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     //define an interface required by the ViewHolder
     public interface TweetAdapterListener{
         public void onItemSelected(View view,int position);
+        public void onProfileSelected(View view,int position);
+        public void onLikeSelected(View view,int position);
+        public void onRetweetSelected(View view,int position);
+        public void onReplySelected(View view,int position);
     }
 
     // pass in the Tweets array in the constructor
@@ -85,6 +89,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         if (tweet.favorite_status){
             holder.ivLike.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_heart));
         }
+
+
     }
 
     @Override
@@ -121,7 +127,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             tvCreatedAt=(TextView)itemView.findViewById(R.id.tvCreatedAt);
 
             // handle row click event
-            itemView.setOnClickListener(new View.OnClickListener(){
+            tvBody.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     if (mListener!=null){
@@ -131,6 +137,52 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
                         mListener.onItemSelected(v,position);
                     }
 
+                }
+            });
+
+            // handle profile image click event
+            ivProfileImage.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        // get the  position of row element
+                        int position=getAdapterPosition();
+                        mListener.onProfileSelected(v,position);
+                    }
+                }
+            });
+            ivLike.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        int position=getAdapterPosition();
+                        Tweet tweet=mTweets.get(position);
+                        if (tweet.favorite_status) {
+                            ivLike.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_heart_stroke));
+                        }
+                        else{
+                            ivLike.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_heart));
+                        }
+                        mListener.onLikeSelected(v,position);
+                    }
+                }
+            });
+            ivRetweet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        int position=getAdapterPosition();
+                        mListener.onRetweetSelected(v,position);
+                    }
+                }
+            });
+            ivReply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        int position=getAdapterPosition();
+                        mListener.onReplySelected(v,position);
+                    }
                 }
             });
 

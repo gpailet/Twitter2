@@ -8,7 +8,6 @@
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:onClick="onImageClick"
         app:srcCompat="@android:color/black"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -58,8 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tvBody"
         android:layout_below="@+id/tvBody"
-        android:background="?android:attr/windowBackground"
         android:layout_marginLeft="40dp"
+        android:background="@android:color/background_light"
         app:srcCompat="@drawable/reply" />
 
     <ImageButton
@@ -67,9 +66,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
-        android:layout_toEndOf="@+id/ivReply"
         android:layout_marginLeft="40dp"
-        android:background="?android:attr/windowBackground"
+        android:layout_toEndOf="@+id/ivReply"
+        android:background="@android:color/background_light"
         app:srcCompat="@drawable/retweet" />
 
     <ImageButton
@@ -77,9 +76,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
-        android:layout_toEndOf="@+id/ivRetweet"
         android:layout_marginLeft="40dp"
-        android:background="?android:attr/windowBackground"
+        android:layout_toEndOf="@+id/ivRetweet"
+        android:background="@android:color/background_light"
         app:srcCompat="@drawable/like" />
 
     <ImageButton
@@ -87,8 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/ivLike"
-        android:layout_toEndOf="@+id/ivLike"
         android:layout_marginLeft="40dp"
-        android:background="?android:attr/windowBackground"
+        android:layout_toEndOf="@+id/ivLike"
+        android:background="@android:color/background_light"
         app:srcCompat="@drawable/direct_message" />
 </RelativeLayout>
