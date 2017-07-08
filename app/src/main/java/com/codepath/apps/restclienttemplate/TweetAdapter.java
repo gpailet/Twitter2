@@ -89,6 +89,16 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         if (tweet.favorite_status){
             holder.ivLike.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_heart));
         }
+        else {
+            holder.ivLike.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_heart_stroke));
+        }
+
+        if (tweet.retweet_status){
+            holder.ivRetweet.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_retweet));
+        }
+        else {
+            holder.ivRetweet.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_retweet_stroke));
+        }
 
 
     }
@@ -172,6 +182,13 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
                 public void onClick(View v) {
                     if (mListener!=null){
                         int position=getAdapterPosition();
+                        Tweet tweet=mTweets.get(position);
+                        if (tweet.retweet_status) {
+                            ivRetweet.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_retweet_stroke));
+                        }
+                        else{
+                            ivRetweet.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.ic_vector_retweet));
+                        }
                         mListener.onRetweetSelected(v,position);
                     }
                 }
